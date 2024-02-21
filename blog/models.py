@@ -14,4 +14,17 @@ content = models.TextField()
 created_on = models.DateTimeField(auto_now_add=True)
 status = models.IntegerField(choices=STATUS, default=0)
 excerpt = models.TextField(blank=True)
+updated_on = models.DateTimeField(auto_now=True)
+
+
+
+class Comment(models.Model):
+    """Comments model class"""
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
 
