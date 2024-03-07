@@ -41,6 +41,6 @@ class Comment(models.Model):
 
     def __str__(self):
         """comment str return"""
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.body} by {self.author}"
 
 
